@@ -7,7 +7,7 @@ const register = (event) => {
     const email = document.getElementById('email').value
     const password = document.getElementById('create-password').value
     const confirm_password = document.getElementById('confirm-password').value
-    const street_address = document.getElementById('address').value
+    const street_address = document.getElementById('reg-address').value
     const contact_number = document.getElementById('number').value
     const info = {
         username, first_name, last_name, email, password, confirm_password, contact_number, street_address

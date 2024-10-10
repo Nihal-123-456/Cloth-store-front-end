@@ -1,0 +1,525 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+@keyframes load{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/* Navigation Bar starts */
+#nav-section{
+    position: absolute;
+    width: 97vw;
+    margin-top: 10px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid rgb(218, 218, 218);
+    background-color: rgba(250,250,250,0.93);
+    list-style: none;
+    z-index: 100;
+}
+.nav-link{
+    font-size: 15px !important;  
+}
+.nav-link:hover,#search-btn-lg:hover,#nav-profile-name:hover,#account-btn-lg:hover{
+    letter-spacing: 1px;
+    font-weight: 500;
+    transition: all 0.4s ease;
+}
+.dropdown button{
+    border: none;
+    background-color: inherit;
+}
+.dropdown-menu{
+    width: 30vw;
+}
+#nav-section .material-symbols-outlined{
+    font-size: 18px;
+}
+@keyframes searchshow{
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+@keyframes searchclose{
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+@keyframes navopen{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 45vh;
+    }
+}
+@keyframes navclose{
+    0%{
+        height: 45vh;
+    }
+    100%{
+        height: 0;
+    }
+}
+@keyframes navopen2{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 32vh;
+    }
+}
+@keyframes navclose2{
+    0%{
+        height: 32vh;
+    }
+    100%{
+        height: 0;
+    }
+}
+#search-section.show{
+    animation: searchshow 0.4s forwards;
+}
+#search-section.close{
+    animation: searchclose 0.4s forwards;
+}
+/* Navigation Bar ends */
+
+/* Banner starts */
+#banner-section{
+    width: 100vw;
+}
+#banner-section img{
+    width: 72vw;
+    height: 100vh;
+    object-fit: cover;
+}
+/* Banner ends */
+
+/* Categories section starts */
+#category-section {
+    margin: auto;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+    width: 90%;
+}
+#category-section img{
+    width: 14vw;
+    height: 40vh;
+    object-fit: cover;
+}
+/* Categories section ends */
+
+/* Discount product section starts */
+#discount-section {
+    margin: auto;
+    margin-bottom: 15vh;
+    width: 90%;
+}
+#discount-section img{
+    border: 1px solid rgb(229, 229, 229);
+}
+#discount-section .card-body{
+    line-height: 50%;
+}
+/* Discount product section ends */
+
+/* Second banner starts */
+#second-banner{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 25vh;
+}
+#second-banner img{
+    width: 100%;
+    height: 65vh;
+    object-fit: cover;
+}
+/* Second banner ends */
+
+/* Footer starts */
+footer{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10vh;
+}
+#section-1{
+    width: 30%;
+}
+#section-2, #section-3, #section-4, #section-5 {
+    width: 15%;
+}
+/* Footer ends */
+
+/* Login & Register section starts */
+#login-section, #register-section, #cart-section, #profile-section{
+    margin-top: 20vh;
+    margin-bottom: 27vh;
+}
+#login-section input {
+    width: 40%;
+    padding: 7px 10px;
+    border: 1px solid rgb(201, 201, 201);
+    font-size: 13px;
+}
+#login-section button, #register-section button {
+    background-color: black;
+    color: white;
+    padding: 10px 40px;
+}
+#login-section-left, #register-section-left, #cart-section-left, #profile-section-left {
+    width: 25%;
+}
+#login-section-right, #register-section-right, #cart-section-right, #profile-section-right {
+    width: 75%;
+}
+.form-data{
+    width: 50%;
+}
+#register-section input {
+    width: 90%;
+    padding: 10px 13px;
+    border: 1px solid rgb(201, 201, 201);
+    font-size: 13px;
+}
+/* Login & Register section ends */
+
+/* Password recovery section starts */
+#pass-recover-instruction {
+    width: 50%;
+}
+/* Password recovery section ends */
+
+/* Cart section starts */
+#cart-table-img-clm {
+    width: 30%;
+}
+#cart-img {
+    width: 25%;
+    margin-right: 10%;
+}
+#cart-quantity-input {
+    width: 30%;
+}
+#cart-section-right select {
+    text-align: center;
+    width: 30%;
+    border: 1px solid rgb(220, 220, 220);
+    padding: 10px 0px;
+}
+/* Cart section ends */
+
+/* Details section starts */
+#item-details{
+    width: 98%;
+    margin: auto;
+    margin-top: 20vh;
+    margin-bottom: 15%;
+}
+#product-images{
+    width: 69%;
+}
+#product-images img{
+    width: 48%;
+    object-fit: cover;
+}
+#product-description{
+    width: 23%;
+}
+#product-description h3{
+    font-weight: 400;
+}
+#product-description select{
+    width: 10vw;
+    padding: 5px;
+}
+#product-description button{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+}
+/* Details section ends */
+
+/* Profile section starts */
+#profile-section-left a {
+    text-decoration: none;
+    color: black;
+}
+#profile-section-left a:hover{
+    cursor: pointer;
+}
+#profile-intro {
+    width: 50%;
+}
+#contact, #address, #orders {
+    margin-top: 100px;
+}
+#order-table-img-clm {
+    width: 40%;
+}
+#order-img {
+    width: 25%;
+    margin-right: 10%;
+    object-fit: scale-down;
+}
+#edit-contact, #edit-address{
+    font-size: 16px !important;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+/* Profile section ends */
+
+/* Products section starts */
+@keyframes filtershow{
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 400px;
+    }
+}
+@keyframes filterclose{
+    0% {
+        width: 400px;
+    }
+    100% {
+        width: 0;
+    }
+}
+@keyframes sortopen{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 32vh;
+    }
+}
+@keyframes sortclose{
+    0%{
+        height: 32vh;
+    }
+    100%{
+        height: 0;
+    }
+}
+@keyframes sizeopen{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 20vh;
+    }
+}
+@keyframes sizeclose{
+    0%{
+        height: 20vh;
+    }
+    100%{
+        height: 0;
+    }
+}
+.categories-section{
+    width: 90%;
+    margin: auto;
+    margin-top: 20vh;
+}
+.categories-section li{
+    width: 15%;
+}
+.categories-img{
+    width: 100%;
+    height: 25vh;
+    object-fit: scale-down;
+}
+#product-card-img{
+    width: 26vw;
+    height: 45vh;
+    object-fit: scale-down;
+    border: solid 1px rgb(199, 199, 199);
+    padding: 15px;
+}
+.items-section{
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+#filter-btns{
+    margin-top: 250px;
+}
+#color-list a, #size-list a{
+    border: 1px solid rgb(236, 235, 235);
+}
+#color-list a:hover{
+    border: 1px solid rgb(190, 190, 190);
+}
+.active{
+    background-color: rgb(246, 246, 246);
+}
+#remove-btns .material-symbols-outlined{
+    font-size: 14px;
+}
+/* Products section ends */
+
+/* Order section starts */
+#order-section{
+    width: 50%;
+    margin-top: 20vh !important;
+    margin-bottom: 27vh !important;
+    background-color: rgb(245, 245, 245);
+}
+/* Order section endss */
+
+/* Media query */
+@media (max-width: 992px) {
+    /* Navigation Bar starts */
+    #nav-section{
+        width: 95vw;
+    }
+    /* Navigation Bar ends */
+
+    /* Banner starts */
+    #banner-section img{
+        width: 100vw;
+    }
+    #banner-txt{
+        position: absolute;
+        z-index: 2;
+        color: white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+    }
+    #banner-txt a{
+        color: white !important;
+    }
+    /* Banner ends */
+
+    /* Categories section starts */
+    #category-section img{
+        width: 45vw;
+    }
+    /* Categories section ends */
+
+    /* Discount product section starts */
+    #discount-section {
+        margin-bottom: 7vh;
+    }
+    /* Discount product section ends */
+
+    /* Second banner starts */
+    #second-banner{
+        margin-bottom: 10vh;
+    }
+    #second-banner img{
+        height: 45vh;
+        object-fit: fill;
+    }
+    /* Second banner ends */
+
+    /* Login & Register section starts */
+    #login-section, #register-section{
+        margin-bottom: 20vh;
+    }
+    #login-section input {
+        width: 100%;
+    }
+    #login-section button{
+        width: 40%;
+    }
+    #login-section-left, #register-section-left, #profile-section-left {
+        width: 100%;
+    }
+    #login-section-right, #register-section-right, #profile-section-right {
+        width: 100%;
+    }
+    .form-data{
+        width: 100%;
+    }
+    #register-section input {
+        width: 100%;
+    }
+    /* Login & Register section ends */
+
+    /* Password recovery section starts */
+    #pass-recover-instruction {
+    width: 100%;
+    }   
+    /* Password recovery section ends */
+
+    /* Details section starts */
+    #product-images{
+        width: 98%;
+        margin: auto;
+    }
+    #product-description{
+        width: 95%;
+        margin: auto;
+        margin-top: 10%;
+    }
+    #product-description select{
+        width: 43vw;
+    }
+    /* Details section ends */
+
+    /* Profile section starts */
+    #profile-intro {
+        width: 100%;
+    }
+    #contact, #address, #orders {
+        margin-top: 70px;
+    }
+    /* Profile section ends */
+
+    /* Product section starts */
+    .categories-img{
+        height: 10vh;
+    }
+    #product-card-img{
+        width: 38vw;
+        height: 30vh;
+    }
+    /* Product section ends */
+
+    /* Order section starts */
+    #order-section{
+        width: 95%;
+    }
+    /* Order section endss */
+}
+
+@media (min-width: 992px) and (max-width: 1217px) {
+    /* Cart section starts */
+    #cart-section {
+        display: block !important;
+    }
+    #cart-section-right {
+        width: 100%;
+        margin-top: 5vh;
+    }
+    /* Cart section ends */
+}

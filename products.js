@@ -177,9 +177,9 @@ const productlist = () => {
                 </div>
                 <div class="card-body p-0 pt-2 lh-1">
                 <a href="item_details.html?item_id=${item.id}" class="text-decoration-none text-black">
-                    <div class="d-flex">
+                    <div class="d-lg-flex">
                         <p class="flex-grow-1 fw-bold"><small>${item.title}</small></p>
-                        ${item.discount? `<p class="px-2 text-decoration-line-through" style="color: gray;"><small>$${item.price}</small></p>`:`<p class="px-2"><small>$${item.price}</small></p>`}
+                        ${item.discount? `<p class="px-lg-2 text-decoration-line-through" style="color: gray;"><small>$${item.price}</small></p>`:`<p class="px-lg-2"><small>$${item.price}</small></p>`}
                     </div>
                     <div class="d-flex">
                         <p class="flex-grow-1 fw-bold" style="color: red;"><small>${item.discount?`Sale. -${item.discount_percentage}%`:""}</small></p>

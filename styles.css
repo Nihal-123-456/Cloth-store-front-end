@@ -448,9 +448,6 @@ footer{
     #login-section input {
         width: 100%;
     }
-    #login-section button{
-        width: 40%;
-    }
     #login-section-left, #register-section-left, #profile-section-left {
         width: 100%;
     }

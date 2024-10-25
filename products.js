@@ -1,5 +1,5 @@
 const colorview = () => {
-    fetch('https://cloth-store-api.onrender.com/product/color/')
+    fetch('https://cloth-store-api-production.up.railway.app/product/color/')
     .then((req)=>req.json())
     .then((data)=>{
         const parent = document.getElementById('color-list')
@@ -26,7 +26,7 @@ const colorview = () => {
 colorview()
 
 const sizeview = () => {
-    fetch('https://cloth-store-api.onrender.com/product/size/')
+    fetch('https://cloth-store-api-production.up.railway.app/product/size/')
     .then((req)=>req.json())
     .then((data)=>{
         const parent = document.getElementById('size-list')
@@ -124,7 +124,7 @@ const removesize = (id) => {
 
 const categorylist = () => {
     const path = document.getElementById('category-path')
-    fetch('https://cloth-store-api.onrender.com/product/category/')
+    fetch('https://cloth-store-api-production.up.railway.app/product/category/')
     .then((req)=>req.json())
     .then((data)=>{
         const parent = document.getElementById('categories')
@@ -161,7 +161,7 @@ const productlist = () => {
     const colors = activecolors.length>0? activecolors.join(',') : ''
     const sizes = activesizes.length>0? activesizes.join(',') : ''
     const path = document.getElementById('category-path')
-    fetch(`https://cloth-store-api.onrender.com/product/item/?category=${category?category:""}&sort=${sort_param?sort_param:""}&color=${colors}&size=${sizes}&average_rating=${rating?rating:""}`)
+    fetch(`https://cloth-store-api-production.up.railway.app/product/item/?category=${category?category:""}&sort=${sort_param?sort_param:""}&color=${colors}&size=${sizes}&average_rating=${rating?rating:""}`)
     .then((req)=>req.json())
     .then((data)=>{
         const parent = document.getElementById('products')

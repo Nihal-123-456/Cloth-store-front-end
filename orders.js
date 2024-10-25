@@ -3,10 +3,10 @@ const orderlist = () => {
     const token = localStorage.getItem('token')
     const uid = localStorage.getItem('uid')
     if(token && uid) {
-        fetch(`https://cloth-store-api.onrender.com/user/cart/?user=${uid}`)
+        fetch(`https://cloth-store-api-production.up.railway.app/user/cart/?user=${uid}`)
         .then((req)=>req.json())
         .then((data)=>{
-            fetch(`https://cloth-store-api.onrender.com/user/userinfo/?user=${uid}`)
+            fetch(`https://cloth-store-api-production.up.railway.app/user/userinfo/?user=${uid}`)
             .then((req)=>req.json())
             .then((user)=>{
                 order.innerHTML = `
@@ -50,7 +50,7 @@ orderlist()
 const payment_landing = (event) =>{
     event.preventDefault()
     const uid = localStorage.getItem('uid')
-    fetch(`https://cloth-store-api.onrender.com/product/paymentgateway/${uid}`)
+    fetch(`https://cloth-store-api-production.up.railway.app/product/paymentgateway/${uid}`)
     .then((res)=>res.json())
     .then((data)=>{
         window.location.href = data.payment_url

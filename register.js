@@ -14,7 +14,7 @@ const register = (event) => {
     }
     if (password == confirm_password) {
         if(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(password)) {
-            fetch('https://cloth-store-api.onrender.com/user/register/' , {
+            fetch('https://cloth-store-api-production.up.railway.app/user/register/' , {
                 method: 'POST',
                 headers: {'content-type' : 'application/json'},
                 body: JSON.stringify(info)

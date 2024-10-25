@@ -2,7 +2,7 @@ const itemdetails=()=>{
     const item = new URLSearchParams(window.location.search).get('item_id')
     const token = localStorage.getItem('token')
     const uid = localStorage.getItem('uid')
-    fetch(`https://cloth-store-api.onrender.com/product/item/${item}/`)
+    fetch(`https://cloth-store-api-production.up.railway.app/product/item/${item}/`)
     .then((req)=>req.json())
     .then((data)=>{
         const parent = document.getElementById('item-details')
@@ -66,11 +66,11 @@ const add_to_cart = (item, color, size) => {
     const token = localStorage.getItem('token')
     const uid = localStorage.getItem('uid')
     const quantity = 1
-    fetch(`https://cloth-store-api.onrender.com/user/cart/?user=${uid}`)
+    fetch(`https://cloth-store-api-production.up.railway.app/user/cart/?user=${uid}`)
     .then((req)=>req.json())
     .then((data)=>{
         const cart = data[0].id
-        fetch(`https://cloth-store-api.onrender.com/user/cart_items/`,{
+        fetch(`https://cloth-store-api-production.up.railway.app/user/cart_items/`,{
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

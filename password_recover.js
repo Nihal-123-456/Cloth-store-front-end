@@ -2,7 +2,7 @@ const password_recover = (event) => {
     event.preventDefault()
     const recovery_email = document.getElementById('recovery-email').value
     const html = document.getElementById('pass-recover-instruction')
-    fetch('https://cloth-store-api.onrender.com/user/forget_password/',{
+    fetch('https://cloth-store-api-production.up.railway.app/user/forget_password/',{
         method: 'POST',
         headers: {'content-type' : 'application/json'},
         body: JSON.stringify({'email':recovery_email})
@@ -32,7 +32,7 @@ const set_new_password = (event, uid, token) => {
 
     if (new_password == confirm_new_password) {
         if(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(new_password)) {
-            fetch(`https://cloth-store-api.onrender.com/user/password_reset/${uid}/${token}`, {
+            fetch(`https://cloth-store-api-production.up.railway.app/user/password_reset/${uid}/${token}`, {
                 method: 'POST',
                 headers: {'content-type' : 'application/json'},
                 body: JSON.stringify({new_password, confirm_new_password})

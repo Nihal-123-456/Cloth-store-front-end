@@ -5,7 +5,7 @@ const sortByCategory = (category) => {
 }
 
 const categoryList =()=>{
-    fetch('https://cloth-store-api.onrender.com/product/category/')
+    fetch('https://cloth-store-api-production.up.railway.app/product/category/')
     .then((req)=>req.json())
     .then((data)=>{
         const parent = document.getElementById('category-sliders')
@@ -28,7 +28,7 @@ const categoryList =()=>{
 categoryList()
 
 const discountProductList =()=>{
-    fetch('https://cloth-store-api.onrender.com/product/item/?sort=discount')
+    fetch('https://cloth-store-api-production.up.railway.app/product/item/?sort=discount')
     .then((req)=>req.json())
     .then((data)=>{
         const parent = document.getElementById('discount-sliders')

@@ -3,7 +3,7 @@ const login = (event) => {
     const username = document.getElementById('email-username').value
     const password = document.getElementById('password').value
     if(username && password) {
-        fetch('https://cloth-store-api.onrender.com/user/login/' , {
+        fetch('https://cloth-store-api-production.up.railway.app/user/login/' , {
             method: 'POST',
             headers: {'content-type' : 'application/json'},
             body: JSON.stringify({username,password})

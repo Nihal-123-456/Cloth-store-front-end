@@ -1,5 +1,5 @@
 window.onload = function() {
-    fetch('https://cloth-store-api.onrender.com/user/token_view')
+    fetch('https://cloth-store-api-production.up.railway.app/user/token_view')
     .then((res)=>res.json())
     .then((data)=>{
         const uid = localStorage.getItem('uid')
@@ -26,7 +26,7 @@ const navbar = () => {
     const token = localStorage.getItem('token')
     const uid = localStorage.getItem('uid')
     if (token && uid) {
-        fetch(`https://cloth-store-api.onrender.com/user/userinfo/?user=${uid}`)
+        fetch(`https://cloth-store-api-production.up.railway.app/user/userinfo/?user=${uid}`)
         .then((req)=>req.json())
         .then((data)=>{
             username.innerHTML = `
@@ -80,7 +80,7 @@ navbar()
 
 const logout = () => {
     const token = localStorage.getItem('token')
-    fetch('https://cloth-store-api.onrender.com/user/logout/' , {
+    fetch('https://cloth-store-api-production.up.railway.app/user/logout/' , {
         method: 'POST',
         headers: {
             Authorization: `Token ${token}`,
@@ -100,7 +100,7 @@ const cartButton = () => {
     const token = localStorage.getItem('token')
     const uid = localStorage.getItem('uid')
     if(token && uid) {
-        fetch(`https://cloth-store-api.onrender.com/user/cart/?user=${uid}`)
+        fetch(`https://cloth-store-api-production.up.railway.app/user/cart/?user=${uid}`)
         .then((req)=>req.json())
         .then((data)=>{
             if (data[0].total_quantity > 0) {
@@ -173,7 +173,7 @@ cartButton()
 const navcart_item_delete = (product) => {
     const token = localStorage.getItem('token')
     console.log(product);
-    fetch(`https://cloth-store-api.onrender.com/user/cart_items/${product}/`,{
+    fetch(`https://cloth-store-api-production.up.railway.app/user/cart_items/${product}/`,{
         method: 'DELETE',
         headers: {
             'content-type': 'application/json',
@@ -201,7 +201,7 @@ const close_search_bar = () => {
 let items = []
 
 const item_list = () => {
-    fetch('https://cloth-store-api.onrender.com/product/item/')
+    fetch('https://cloth-store-api-production.up.railway.app/product/item/')
     .then((req)=>req.json())
     .then((data)=>{
         items = data

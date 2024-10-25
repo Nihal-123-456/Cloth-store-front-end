@@ -7,7 +7,7 @@ const cart = () => {
     const msg = document.getElementById('order-failed-msg')
     const msg_sm = document.getElementById('order-failed-msg-sm')
     if(token && uid) {
-        fetch(`https://cloth-store-api.onrender.com/user/cart/?user=${uid}`)
+        fetch(`https://cloth-store-api-production.up.railway.app/user/cart/?user=${uid}`)
         .then((req)=>req.json())
         .then((data)=>{
             if(refer == 'failed'){
@@ -106,7 +106,7 @@ const cart_quantity_change = (product, quantity, cart)=> {
     const color = product.color
     const size = product.size
     const item = product.item_id
-    fetch(`https://cloth-store-api.onrender.com/user/cart_items/${product.id}/`,{
+    fetch(`https://cloth-store-api-production.up.railway.app/user/cart_items/${product.id}/`,{
         method: 'PUT',
         headers: {
             'content-type': 'application/json',
@@ -120,7 +120,7 @@ const cart_quantity_change = (product, quantity, cart)=> {
     })
 }
 
-const cart_item_delete = (product) => {
+const cart_item_delete = (product) => {https://cloth-store-api-production.up.railway.app/
     const token = localStorage.getItem('token')
     console.log(product);
     fetch(`https://cloth-store-api.onrender.com/user/cart_items/${product}/`,{

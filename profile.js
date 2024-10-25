@@ -2,7 +2,7 @@ const profile_view = () => {
     const token = localStorage.getItem('token')
     const uid = localStorage.getItem('uid')
     if (token && uid) {
-        fetch(`https://cloth-store-api.onrender.com/user/userinfo/?user=${uid}`)
+        fetch(`https://cloth-store-api-production.up.railway.app/user/userinfo/?user=${uid}`)
         .then((req)=>req.json())
         .then((data)=>{
             localStorage.setItem('user-mobile',data[0].contact_number)
@@ -67,7 +67,7 @@ const order_view = () => {
     const uid = localStorage.getItem('uid')
     const orders = document.getElementById('order-row')
     if (token && uid) {
-        fetch(`https://cloth-store-api.onrender.com/user/order_history/?user=${uid}`)
+        fetch(`https://cloth-store-api-production.up.railway.app/user/order_history/?user=${uid}`)
         .then((req)=>req.json())
         .then((data)=>{
             data.forEach((item)=>{
@@ -93,7 +93,7 @@ const saveUserDetails = (contact_number, street_address, id) => {
     const token = localStorage.getItem('token');
     const uid = localStorage.getItem('uid');
     const user = parseInt(uid,10)
-    fetch(`https://cloth-store-api.onrender.com/user/userinfo/${id}/`, {
+    fetch(`https://cloth-store-api-production.up.railway.app/user/userinfo/${id}/`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

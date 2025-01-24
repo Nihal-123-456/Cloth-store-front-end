@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>
@@ -49,9 +50,12 @@
                 </li>
                 <li id="account-name-sm" class="nav-item d-lg-none">
                 </li>
+                <li id="wihlist-btn-sm" class="nav-item d-lg-none">
+                  <a class="nav-link" href="wishlist.html">Wishlist</a>
+                </li>
                 <li id="account-name-lg" class="nav-item d-none d-lg-block">
                 </li>
-                <li id="logout-btn-sm" class="nav-item mt-2 mb-3" onclick="logout('')" style="cursor: pointer;"></li>
+                <li id="logout-btn-sm" class="nav-item mb-3 mt-2" onclick="logout('')" style="cursor: pointer;"></li>
                 <li id="cart-btn" class="nav-item d-none d-lg-block">
                 </li>
                 <li id="cart-btn-sm" class="nav-item d-lg-none">
@@ -103,9 +107,10 @@
                           <thead>
                             <tr>
                               <th scope="col">Product</th>
-                              <th scope="col">Date</th>
+                              <th scope="col" class="d-none d-lg-table-cell">Date</th>
                               <th scope="col">Status</th>
                               <th scope="col">Total</th>
+                              <th scope="col">Actions</th>
                             </tr>
                           </thead>
                           <tbody class="table-group-divider" id="order-row">

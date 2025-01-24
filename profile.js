@@ -66,11 +66,45 @@ const order_view = () => {
     const token = localStorage.getItem('token')
     const uid = localStorage.getItem('uid')
     const orders = document.getElementById('order-row')
+    const profile_section = document.getElementById('profile-section')
     if (token && uid) {
         fetch(`https://cloth-store-api-production.up.railway.app/user/order_history/?user=${uid}`)
         .then((req)=>req.json())
         .then((data)=>{
             data.forEach((item)=>{
+            const modal = document.createElement('section')
+            modal.innerHTML = `
+            <div class="modal fade" id="reviewModal${item.item}" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Help us with your valuable opinion.</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="rating-section text-center mt-3">
+                            <h4>Rate the Product</h4>
+                            <span onclick="gfg(1,${item.item})" class="star ${item.item}">★</span>
+                            <span onclick="gfg(2,${item.item})" class="star ${item.item}">★</span>
+                            <span onclick="gfg(3,${item.item})" class="star ${item.item}">★</span>
+                            <span onclick="gfg(4,${item.item})" class="star ${item.item}">★</span>
+                            <span onclick="gfg(5,${item.item})" class="star ${item.item}">★</span>
+                            <p id="rating-output-${item.item}" hidden></p>
+                        </div>
+                        <div class="comment-section mt-4">
+                            <label for="product-comment-${item.item}" class="form-label">Leave a comment</label>
+                            <textarea id="product-comment-${item.item}" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="submit_review('${item.item}')">Submit</button>
+                    </div>
+                    </div>
+                </div>
+            </div>`
+            profile_section.appendChild(modal)
+            
             const tr = document.createElement('tr')
             tr.classList.add('align-middle')
             tr.innerHTML = `
@@ -78,9 +112,10 @@ const order_view = () => {
                 <img id="order-img" src="${item.item_image}" alt="">
                 <p style="margin-top: 11.5%"><small>${item.quantity}x ${item.color} ${item.item_name} ${item.size}</small></p>
                 </div></td>
-                <td><small>${item.order_date}</small></td>
+                <td class="d-none d-lg-table-cell"><small>${item.order_date}</small></td>
                 <td><small>${item.status}</small></td>
                 <td><small id="cart-price">$${item.total_item_price}</small></td>
+                <td><small><button type="button" class="border-0 bg-white text-decoration-underline text-black" data-bs-toggle="modal" data-bs-target="#reviewModal${item.item}">Give review</button></small></td>
             `
             orders.appendChild(tr)
             })
@@ -109,3 +144,58 @@ const saveUserDetails = (contact_number, street_address, id) => {
     })
 }
 
+function gfg(n,item) {
+    let stars = document.getElementsByClassName("star " + item);
+	remove(stars,item);
+    const output = document.getElementById("rating-output-"+item)
+	for (let i = 0; i < n; i++) {
+		if (n == 1) cls = "one";
+		else if (n == 2) cls = "two";
+		else if (n == 3) cls = "three";
+		else if (n == 4) cls = "four";
+		else if (n == 5) cls = "five";
+		stars[i].className = "star " + item + " " + cls;
+	}
+    output.value = n
+}
+function remove(stars,item) {
+	let i = 0;
+	while (i < 5) {
+		stars[i].className = "star " + item;
+		i++;
+	}
+}
+
+const submit_review = (item) => {
+    const token = localStorage.getItem('token')
+    const user = localStorage.getItem('uid')
+    const review = document.getElementById('product-comment-'+item).value
+    const rating = document.getElementById('rating-output-'+item).value
+    if (!rating) {
+        alert("Please provide a rating before submitting.");
+        return;
+    }
+    if (!review) {
+        alert("Please write a review before submitting.");
+        return;
+    }
+    fetch('https://cloth-store-api-production.up.railway.app/product/review/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${token}`,
+        },
+        body: JSON.stringify({rating, review, user, item})
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+        if (data.success) {
+            alert("Review submitted successfully!");
+            document.getElementById('product-comment-' + item).value = '';
+            document.getElementById('rating-output-' + item).value = '';
+            remove(document.getElementsByClassName("star " + item), item); 
+        } else {
+            alert(data.message);
+        }
+    })
+}

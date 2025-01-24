@@ -37,6 +37,7 @@ const navbar = () => {
                   <ul class="dropdown-menu dropdown-menu-end px-5 pt-5 pb-4"> 
                     <div class="d-flex flex-column mb-4 gap-2">
                         <a href="profile.html" class="text-decoration-none text-black">Personal information</a>
+                        <a href="wishlist.html" class="text-decoration-none text-black">Wishlist</a>
                         <a href="profile.html#orders" class="text-decoration-none text-black">Orders</a>
                     </div>
                     <hr class="mb-4">

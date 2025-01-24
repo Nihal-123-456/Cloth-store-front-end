@@ -170,7 +170,7 @@ footer{
 /* Footer ends */
 
 /* Login & Register section starts */
-#login-section, #register-section, #cart-section, #profile-section{
+#login-section, #register-section, #cart-section, #profile-section, #wishlist-section{
     margin-top: 20vh;
     margin-bottom: 27vh;
 }
@@ -185,10 +185,10 @@ footer{
     color: white;
     padding: 10px 40px;
 }
-#login-section-left, #register-section-left, #cart-section-left, #profile-section-left {
+#login-section-left, #register-section-left, #cart-section-left, #profile-section-left, #wishlist-section-left {
     width: 25%;
 }
-#login-section-right, #register-section-right, #cart-section-right, #profile-section-right {
+#login-section-right, #register-section-right, #cart-section-right, #profile-section-right, #wishlist-section-right {
     width: 75%;
 }
 .form-data{
@@ -209,10 +209,10 @@ footer{
 /* Password recovery section ends */
 
 /* Cart section starts */
-#cart-table-img-clm {
+#cart-table-img-clm, #wishlist-table-img-clm {
     width: 30%;
 }
-#cart-img {
+#cart-img, #wishlist-img {
     width: 25%;
     margin-right: 10%;
 }
@@ -232,7 +232,14 @@ footer{
     width: 98%;
     margin: auto;
     margin-top: 20vh;
+    margin-bottom: 5%;
+}
+#item-reviews{
+    width: 98%;
+    margin: auto;
     margin-bottom: 15%;
+    border: 1px solid rgb(206, 206, 206);
+    padding: 15px 25px 15px 25px;
 }
 #product-images{
     width: 69%;
@@ -251,7 +258,7 @@ footer{
     width: 10vw;
     padding: 5px;
 }
-#product-description button{
+#addto-cart{
     width: 100%;
     padding: 10px;
     border: none;
@@ -289,6 +296,25 @@ footer{
     border-radius: 50%;
     padding: 5px;
     cursor: pointer;
+}
+.star{
+    font-size: 10vh;
+    cursor: pointer;
+}
+.one{
+    color: rgb(255, 0, 0);
+}   
+.two{
+    color: rgb(255, 106, 0);
+}  
+.three{
+    color: rgb(255, 146, 40);
+}   
+.four{
+    color: rgb(255, 186, 80);
+}   
+.five{
+    color: rgb(255, 215, 0)
 }
 /* Profile section ends */
 
@@ -398,6 +424,7 @@ footer{
     /* Navigation Bar starts */
     #nav-section{
         width: 95vw;
+        background-color: rgba(250,250,250,0.99);
     }
     /* Navigation Bar ends */
 
@@ -511,10 +538,10 @@ footer{
 
 @media (min-width: 992px) and (max-width: 1217px) {
     /* Cart section starts */
-    #cart-section {
+    #cart-section, #wishlist-section {
         display: block !important;
     }
-    #cart-section-right {
+    #cart-section-right, #wishlist-section-right {
         width: 100%;
         margin-top: 5vh;
     }

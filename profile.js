@@ -115,7 +115,7 @@ const order_view = () => {
                 <td class="d-none d-lg-table-cell"><small>${item.order_date}</small></td>
                 <td><small>${item.status}</small></td>
                 <td><small id="cart-price">$${item.total_item_price}</small></td>
-                <td><small><button type="button" class="border-0 bg-white text-decoration-underline text-black" data-bs-toggle="modal" data-bs-target="#reviewModal${item.item}">Give review</button></small></td>
+                <td><small>${item.status == 'Delivered'? `<button type="button" class="border-0 bg-white text-decoration-underline text-black" data-bs-toggle="modal" data-bs-target="#reviewModal${item.item}">Give review</button>` : ""}</small></td>
             `
             orders.appendChild(tr)
             })
